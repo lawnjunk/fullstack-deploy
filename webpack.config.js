@@ -41,7 +41,7 @@ if (production){
     new CleanPlugin(),
   ]);
 
-  output.publicPath = 'http://d15z7d2wwz9uj1.cloudfront.net/';
+  output.publicPath = 'd15z7d2wwz9uj1.cloudfront.net/';
 }
 
 module.exports = {
