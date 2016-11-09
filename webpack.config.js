@@ -15,7 +15,7 @@ const production = process.env.NODE_ENV === 'production';
 
 console.log('env.TITLE', process.env.TITLE);
 let plugins = [
-  new ExtractTextPlugin('bundle.css'),
+  new ExtractTextPlugin('[hash].css'),
   new HTMLPlugin({ template: `${__dirname}/app/index.html` }),
   new webpack.DefinePlugin({
     __API_URL__: JSON.stringify(process.env.API_URL),
