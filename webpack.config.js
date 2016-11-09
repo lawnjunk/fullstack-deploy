@@ -25,6 +25,11 @@ let plugins = [
   }),
 ];
 
+let output = {
+  path: 'build',
+  filename: '[hash].js',
+};
+
 if (production){
   plugins = plugins.concat([
     new webpack.optimize.UglifyJsPlugin({
@@ -35,16 +40,15 @@ if (production){
     }),
     new CleanPlugin(),
   ]);
+
+  output.publicPath = 'http://d15z7d2wwz9uj1.cloudfront.net/';
 }
 
 module.exports = {
   entry: `${__dirname}/app/entry.js`,
   devtool: production ? false : 'eval',
   plugins,
-  output: {
-    path: 'build',
-    filename: 'bundle.js',
-  },
+  output,
   sassLoader: {
     includePaths: [`${__dirname}/app/scss/lib`],
   },
